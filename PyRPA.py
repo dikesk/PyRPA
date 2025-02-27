@@ -261,6 +261,10 @@ def Analysis(PicName, location):
             break
         elif NowRowKey[local] == '音频' or NowRowKey[local] == '音乐' or NowRowKey[local] == '播放':
             playsound(".\\Source\\" + NowRowValue[local])
+        elif NowRowKey[local] == '按键按下':
+            pyautogui.keyDown(str(NowRowValue[local]))  # 模拟按下指定按键
+        elif NowRowKey[local] == '按键释放':
+            pyautogui.keyUp(str(NowRowValue[local]))  # 模拟释放指定按键
         else:
             mylog('CMD:', NowRowKey[local], '!! 未知指令', NowRowKey[local])
             pyautogui.alert(text='CMD: ' + NowRowKey[local] + '!! 未知指令', title=MSGWindowName)
